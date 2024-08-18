@@ -24,7 +24,25 @@ mat-divider[vertical] {
   align-self: center;
 }
 
-.lang-btn {
-  height: 19px;
-  width: 30px;
+.menu-icon {
+  display: none;
+}
+
+/* Display nav list and language menu on larger screens */
+.desktop-nav-list,
+.desktop-lang-menu {
+  display: flex;
+}
+
+/* Hide the navigation list and language menu on smaller screens */
+@media (max-width: 900px) {
+  .desktop-nav-list,
+  .desktop-lang-menu {
+    display: none;
+  }
+
+  /* Show the hamburger menu button on smaller screens */
+  .menu-icon {
+    display: block;
+  }
 }
