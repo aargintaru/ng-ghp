@@ -1,0 +1,30 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.lang-spacer {
+  margin-left: 40px;
+}
+
+.title-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+mat-divider[vertical] {
+  margin: 0 8px;
+  height: 25px;
+  align-self: center;
+}
+
+.lang-btn {
+  height: 19px;
+  width: 30px;
+}
