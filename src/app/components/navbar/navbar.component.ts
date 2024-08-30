@@ -8,6 +8,10 @@ import { NgOptimizedImage } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
+import { Router } from '@angular/router';
+import { appRoutes } from '../../app.routes';
+import { TranslateModule } from '@ngx-translate/core';
+import { LangSelectComponent } from './lang-select/lang-select.component';
 
 @Component({
   selector: 'app-navbar',
@@ -21,14 +25,20 @@ import { MatMenuModule } from '@angular/material/menu';
     MatIconModule,
     MatSidenavModule,
     MatMenuModule,
+    TranslateModule,
+    LangSelectComponent,
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  constructor(private internalization: InternalizationService) {}
+  constructor(private router: Router) {}
 
-  switchLanguage(language: string) {
-    this.internalization.switchLanguage(language);
+  onContactClick() {
+    this.router.navigate([appRoutes.contact]);
+  }
+
+  onHomeClick() {
+    this.router.navigate([appRoutes.home]);
   }
 }

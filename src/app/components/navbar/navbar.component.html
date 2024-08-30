@@ -6,63 +6,33 @@
   <span class="example-spacer"></span>
 
   <div class="desktop-nav-list">
-    <button mat-button>Home</button>
+    <button mat-button (click)="onHomeClick()">
+      {{ "NAV.HOME" | translate }}
+    </button>
     <mat-divider vertical></mat-divider>
-    <button mat-button>About</button>
+    <button mat-button>{{ "NAV.ABOUT" | translate }}</button>
     <mat-divider vertical></mat-divider>
-    <button mat-button>Services</button>
+    <button mat-button>{{ "NAV.SERVICES" | translate }}</button>
     <mat-divider vertical></mat-divider>
-    <button mat-button>Contact</button>
+    <button mat-button (click)="onContactClick()">
+      {{ "NAV.CONTACT" | translate }}
+    </button>
   </div>
 
   <div class="lang-spacer"></div>
   <div class="desktop-lang-menu">
-    <button mat-button (click)="switchLanguage('de')">
-      <img ngSrc="ger.png" width="30" height="20" />
-    </button>
-    <button mat-button (click)="switchLanguage('en')">
-      <img ngSrc="uk.png" width="30" height="20" />
-    </button>
+    <app-lang-select />
   </div>
-
-  <!-- <button mat-icon-button (click)="sidenav.open()" class="menu-icon">
-    <mat-icon>menu</mat-icon>
-  </button> -->
-
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav mode="over" position="end">
-      <mat-nav-list>
-        <a mat-list-item (click)="sidenav.close()">Home</a>
-        <a mat-list-item (click)="sidenav.close()">About</a>
-        <a mat-list-item (click)="sidenav.close()">Services</a>
-        <a mat-list-item (click)="sidenav.close()">Contact</a>
-        <mat-divider></mat-divider>
-        <button mat-button (click)="switchLanguage('de')">
-          <img ngSrc="ger.png" width="30" height="20" />
-        </button>
-        <button mat-button (click)="switchLanguage('en')">
-          <img ngSrc="uk.png" width="30" height="20" />
-        </button>
-      </mat-nav-list>
-    </mat-sidenav>
-
-    <mat-sidenav-content> </mat-sidenav-content>
-  </mat-sidenav-container>
 
   <button mat-icon-button class="menu-icon" [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <a mat-menu-item (click)="sidenav.close()">Home</a>
-    <a mat-menu-item (click)="sidenav.close()">About</a>
-    <a mat-menu-item (click)="sidenav.close()">Services</a>
-    <a mat-menu-item (click)="sidenav.close()">Contact</a>
+    <a mat-menu-item>{{ "NAV.HOME" | translate }}</a>
+    <a mat-menu-item>{{ "NAV.ABOUT" | translate }}</a>
+    <a mat-menu-item>{{ "NAV.SERVICES" | translate }}</a>
+    <a mat-menu-item>{{ "NAV.CONTACT" | translate }}</a>
     <mat-divider></mat-divider>
-    <button mat-button (click)="switchLanguage('de')">
-      <img ngSrc="ger.png" width="30" height="20" />
-    </button>
-    <button mat-button (click)="switchLanguage('en')">
-      <img ngSrc="uk.png" width="30" height="20" />
-    </button>
+    <app-lang-select />
   </mat-menu>
 </mat-toolbar>

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 export const appRoutes = {
   home: 'home',
@@ -13,6 +14,10 @@ export const routes: Routes = [
   {
     path: appRoutes.home,
     component: HomeComponent,
+  },
+  {
+    path: appRoutes.contact,
+    component: ContactComponent,
   },
   //   { path: appRoutes.main, component: MainComponent, canActivate: [AuthGuard] },
   //   {

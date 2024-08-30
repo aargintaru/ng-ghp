@@ -11,6 +11,10 @@ export class InternalizationService {
     translate.setDefaultLang(savedLanguage);
   }
 
+  getCurrentLanguage() {
+    return this.translate.currentLang;
+  }
+
   switchLanguage(language: string) {
     this.translate.use(language);
     localStorage.setItem('language', language);

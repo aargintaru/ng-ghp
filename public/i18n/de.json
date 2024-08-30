@@ -2,5 +2,11 @@
   "HOME": {
     "TITLE": "Willkommen auf unserer Website",
     "DESCRIPTION": "Dies ist eine statische Seite mit Angular i18n-Unterstützung."
+  },
+  "NAV": {
+    "HOME": "Startseite",
+    "ABOUT": "Über uns",
+    "SERVICES": "Dienstleistungen",
+    "CONTACT": "Kontakt"
   }
 }

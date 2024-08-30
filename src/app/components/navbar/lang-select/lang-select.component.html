@@ -1,0 +1,14 @@
+<mat-button-toggle-group
+  #group="matButtonToggleGroup"
+  [value]="selectedLang"
+  (change)="switchLanguage(group.value)"
+  name="fontStyle"
+  aria-label="Font Style"
+>
+  <mat-button-toggle value="de"
+    ><img ngSrc="ger.png" width="30" height="20"
+  /></mat-button-toggle>
+  <mat-button-toggle value="en"
+    ><img ngSrc="uk.png" width="30" height="20"
+  /></mat-button-toggle>
+</mat-button-toggle-group>
