@@ -1,38 +1,103 @@
 <div class="form-container">
-  <form target="_blank" action="https://formspree.io/f/xdknbjwy" method="POST">
-    <div class="form-group">
-      <div class="form-row">
-        <div class="col">
-          <input
-            type="text"
-            name="name"
-            class="form-control"
-            placeholder="Full Name"
-            required
-          />
-        </div>
-        <div class="col">
-          <input
-            type="email"
-            name="email"
-            class="form-control"
-            placeholder="Email Address"
-            required
-          />
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <textarea
-        placeholder="Your Message"
-        class="form-control"
-        name="message"
-        rows="10"
+  <form
+    [formGroup]="contactForm"
+    (ngSubmit)="onSubmit(contactForm)"
+    class="form-box"
+  >
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input
+        matInput
         required
-      ></textarea>
+        placeholder="customer@domain.com"
+        formControlName="email"
+      />
+      @if (email) {
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="contactForm.get('email')!.reset()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+      }
+      <div
+        *ngIf="email!.invalid && (email!.dirty || email!.touched)"
+        class="error"
+      >
+        <div *ngIf="email!.errors!['required']">Email is required.</div>
+        <div *ngIf="email!.errors!['email']">Invalid email address.</div>
+      </div>
+    </mat-form-field>
+
+    <div class="date-input">
+      <mat-form-field class="full-width">
+        <input
+          ngbDatepicker
+          #d1="ngbDatepicker"
+          matInput
+          type="datetime"
+          name="startDate"
+          formControlName="startDate"
+          placeholder="yyyy-mm-dd"
+          container="body"
+          required
+        />
+        <button matSuffix mat-icon-button (click)="d1.toggle()" type="button">
+          <mat-icon>date_range</mat-icon>
+        </button>
+        <div
+          *ngIf="
+            contactForm.get('startDate')!.invalid &&
+            contactForm.get('startDate')!.touched
+          "
+          class="error"
+        >
+          Start date is required and later than today.
+        </div>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input
+          ngbDatepicker
+          #d2="ngbDatepicker"
+          matInput
+          type="datetime"
+          name="endDate"
+          formControlName="endDate"
+          placeholder="yyyy-mm-dd"
+          container="body"
+          required
+        />
+        <button matSuffix mat-icon-button (click)="d2.toggle()" type="button">
+          <mat-icon>date_range</mat-icon>
+        </button>
+        <div
+          *ngIf="
+            contactForm.get('endDate')!.invalid &&
+            contactForm.get('endDate')!.touched
+          "
+          class="error"
+        >
+          End date is required and later than today.
+        </div>
+      </mat-form-field>
     </div>
-    <button type="submit" class="btn btn-lg btn-dark btn-block">
-      Submit Form
-    </button>
+
+    <div *ngIf="endDateNotAfterStartDate" class="error">
+      End date must be later than start date.
+    </div>
+
+    <mat-form-field>
+      <mat-label>Leave a comment</mat-label>
+      <textarea
+        matInput
+        name="comment"
+        formControlName="comment"
+        placeholder="Leave a message with special needs or requests"
+      ></textarea>
+    </mat-form-field>
+
+    <button type="submit" mat-stroked-button>Submit Form</button>
   </form>
 </div>

@@ -1,8 +1,39 @@
 .form-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh; /* Adjust as needed */
+  height: calc(100vh - 64px);
+}
+
+.form-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+.date-input {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .form-box {
+    width: 75%;
+  }
+
+  .date-input {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.error {
+  color: red;
+  size: 14px;
 }
 
 .form-row {
