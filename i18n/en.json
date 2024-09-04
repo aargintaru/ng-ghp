@@ -3,5 +3,10 @@
     "TITLE": "Welcome to our website",
     "DESCRIPTION": "This is a static page with Angular i18n support."
   },
-  "NAV": {}
+  "NAV": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "SERVICES": "Services",
+    "CONTACT": "Contact"
+  }
 }
